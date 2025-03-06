@@ -1,0 +1,163 @@
+<!-- quizApp.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-bg: #000000;
+        --border-color: #ffd700;
+        --text-color: #ffffff;
+        --secondary-text: #e0e0e0;
+        --shadow-color: rgba(255, 215, 0, 0.6);
+        --text-shadow: rgba(255, 255, 255, 0.3);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+        user-select: none;
+      }
+
+      body {
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+
+      .quiz-container {
+        width: 90%;
+        max-width: 500px;
+        padding: 20px;
+        border: 2px solid var(--border-color);
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 0 10px var(--shadow-color);
+      }
+
+      h1 {
+        text-shadow: 0 0 5px var(--text-shadow);
+        margin-bottom: 20px;
+      }
+
+      .question {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+      }
+
+      .options button {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        background: transparent;
+        color: var(--border-color);
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .options button:hover {
+        background: var(--border-color);
+        color: var(--primary-bg);
+      }
+
+      .btn {
+        padding: 10px;
+        background: var(--border-color);
+        color: var(--primary-bg);
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 10px;
+      }
+
+      .btn:hover {
+        background: var(--text-color);
+        color: var(--primary-bg);
+      }
+
+      .result {
+        font-size: 1.5rem;
+        margin-top: 15px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="quiz-container">
+      <h1>Quiz App</h1>
+      <div class="question" id="question"></div>
+      <div class="options" id="options"></div>
+      <button class="btn" onclick="nextQuestion()">Next</button>
+      <div class="result" id="result"></div>
+    </div>
+
+    <script>
+      const quizData = [
+        {
+          question: 'What is the capital of France?',
+          options: ['Paris', 'London', 'Berlin', 'Madrid'],
+          answer: 'Paris',
+        },
+        {
+          question: 'What is 5 + 3?',
+          options: ['5', '8', '10', '7'],
+          answer: '8',
+        },
+        {
+          question: 'Which is the largest planet?',
+          options: ['Mars', 'Earth', 'Jupiter', 'Saturn'],
+          answer: 'Jupiter',
+        },
+      ];
+
+      let currentQuestion = 0;
+      let score = 0;
+
+      function loadQuestion() {
+        if (currentQuestion >= quizData.length) {
+          document.getElementById('question').style.display = 'none';
+          document.getElementById('options').style.display = 'none';
+          document.getElementById('result').innerText = `Your Score: ${score}/${quizData.length}`;
+          document.getElementById('result').style.display = 'block';
+          return;
+        }
+
+        document.getElementById('question').innerText = quizData[currentQuestion].question;
+        document.getElementById('options').innerHTML = quizData[currentQuestion].options
+          .map((option) => `<button onclick="checkAnswer('${option}')">${option}</button>`)
+          .join('');
+      }
+
+      function checkAnswer(selected) {
+        if (selected === quizData[currentQuestion].answer) {
+          score++;
+        }
+        currentQuestion++;
+        loadQuestion();
+      }
+
+      function nextQuestion() {
+        loadQuestion();
+      }
+
+      loadQuestion();
+    </script>
+  </body>
+</html>

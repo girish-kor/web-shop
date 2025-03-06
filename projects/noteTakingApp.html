@@ -1,0 +1,154 @@
+<!-- noteTakingApp.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Note-Taking App</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+      :root {
+        --primary-bg: #000000;
+        --border-color: #ffd700;
+        --text-color: #ffffff;
+        --shadow-color: rgba(255, 215, 0, 0.6);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+        user-select: none;
+      }
+
+      body {
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+
+      h1 {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        margin-bottom: 15px;
+      }
+
+      .note-input {
+        width: 100%;
+        max-width: 600px;
+        background: #222;
+        border: 2px solid var(--border-color);
+        color: var(--text-color);
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-bottom: 10px;
+        outline: none;
+      }
+
+      .btn {
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        background: transparent;
+        color: var(--border-color);
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-bottom: 20px;
+      }
+
+      .btn:hover {
+        background: var(--border-color);
+        color: var(--primary-bg);
+      }
+
+      .notes-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 600px;
+        width: 100%;
+      }
+
+      .note {
+        background: #222;
+        padding: 10px;
+        border-radius: 5px;
+        border: 2px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .note .material-icons {
+        cursor: pointer;
+        color: var(--border-color);
+      }
+
+      .note .material-icons:hover {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Note-Taking App</h1>
+
+    <textarea
+      id="noteInput"
+      class="note-input"
+      rows="3"
+      placeholder="Write your note here..."
+    ></textarea>
+
+    <button class="btn" onclick="addNote()">Add Note</button>
+
+    <div class="notes-container" id="notesContainer"></div>
+
+    <script>
+      function loadNotes() {
+        const notesContainer = document.getElementById('notesContainer');
+        const notes = JSON.parse(localStorage.getItem('notes')) || [];
+        notesContainer.innerHTML = notes
+          .map(
+            (note, index) => `
+                <div class="note">
+                    <p>${note}</p>
+                    <span class="material-icons" onclick="deleteNote(${index})">delete</span>
+                </div>
+            `
+          )
+          .join('');
+      }
+
+      function addNote() {
+        const noteInput = document.getElementById('noteInput');
+        const noteText = noteInput.value.trim();
+        if (!noteText) return;
+
+        const notes = JSON.parse(localStorage.getItem('notes')) || [];
+        notes.push(noteText);
+        localStorage.setItem('notes', JSON.stringify(notes));
+
+        noteInput.value = '';
+        loadNotes();
+      }
+
+      function deleteNote(index) {
+        const notes = JSON.parse(localStorage.getItem('notes')) || [];
+        notes.splice(index, 1);
+        localStorage.setItem('notes', JSON.stringify(notes));
+        loadNotes();
+      }
+
+      loadNotes();
+    </script>
+  </body>
+</html>

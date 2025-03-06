@@ -1,0 +1,172 @@
+<!-- budgetTracker.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budget Tracker</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+      :root {
+        --primary-bg: #000000;
+        --border-color: #ffd700;
+        --text-color: #ffffff;
+        --shadow-color: rgba(255, 215, 0, 0.6);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+        user-select: none;
+      }
+
+      body {
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+
+      h1 {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        margin-bottom: 15px;
+      }
+
+      .input-container {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .input-container input {
+        padding: 8px;
+        border: 2px solid var(--border-color);
+        background: #222;
+        color: var(--text-color);
+        border-radius: 5px;
+        font-size: 16px;
+        outline: none;
+        width: 150px;
+      }
+
+      .btn {
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        background: transparent;
+        color: var(--border-color);
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        background: var(--border-color);
+        color: var(--primary-bg);
+      }
+
+      .transactions {
+        margin-top: 20px;
+        max-width: 400px;
+        width: 100%;
+      }
+
+      .transaction {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #222;
+        padding: 10px;
+        border-radius: 5px;
+        border: 2px solid var(--border-color);
+        margin-bottom: 5px;
+      }
+
+      .transaction .material-icons {
+        cursor: pointer;
+        color: var(--border-color);
+      }
+
+      .transaction .material-icons:hover {
+        color: red;
+      }
+
+      .balance {
+        margin-top: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        color: var(--border-color);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Budget Tracker</h1>
+
+    <div class="balance">Balance: ₹<span id="balance">0</span></div>
+
+    <div class="input-container">
+      <input type="text" id="descInput" placeholder="Description" />
+      <input type="number" id="amountInput" placeholder="Amount (₹)" />
+    </div>
+
+    <button class="btn" onclick="addTransaction()">Add Transaction</button>
+
+    <div class="transactions" id="transactionList"></div>
+
+    <script>
+      function loadTransactions() {
+        const transactionList = document.getElementById('transactionList');
+        const balanceElement = document.getElementById('balance');
+        let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+
+        transactionList.innerHTML = transactions
+          .map(
+            (txn, index) => `
+                <div class="transaction">
+                    <p>${txn.desc} - ₹${txn.amount}</p>
+                    <span class="material-icons" onclick="deleteTransaction(${index})">delete</span>
+                </div>
+            `
+          )
+          .join('');
+
+        const totalBalance = transactions.reduce((sum, txn) => sum + txn.amount, 0);
+        balanceElement.textContent = totalBalance;
+      }
+
+      function addTransaction() {
+        const descInput = document.getElementById('descInput');
+        const amountInput = document.getElementById('amountInput');
+        const desc = descInput.value.trim();
+        const amount = parseFloat(amountInput.value);
+
+        if (!desc || isNaN(amount)) return;
+
+        let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+        transactions.push({ desc, amount });
+        localStorage.setItem('transactions', JSON.stringify(transactions));
+
+        descInput.value = '';
+        amountInput.value = '';
+        loadTransactions();
+      }
+
+      function deleteTransaction(index) {
+        let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+        transactions.splice(index, 1);
+        localStorage.setItem('transactions', JSON.stringify(transactions));
+        loadTransactions();
+      }
+
+      loadTransactions();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,382 @@
+<!-- portfolio.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Girish Kor - Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+      :root {
+        --primary-bg: #000000;
+        --glass-bg: rgba(255, 255, 255, 0.1);
+        --border-color: #ffd700;
+        --text-color: #ffffff;
+        --shadow-color: rgba(255, 215, 0, 0.6);
+        --button-hover: rgba(255, 215, 0, 0.2);
+        --section-spacing: 2.5rem;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+        user-select: none;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 1rem;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1000px;
+        width: 100%;
+        text-align: center;
+        padding: 2.5rem;
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px) saturate(180%);
+        border: 2px solid var(--border-color);
+        border-radius: 16px;
+        box-shadow: 0 0 30px var(--shadow-color);
+        margin-bottom: var(--section-spacing);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .container::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+        transform: rotate(45deg);
+        pointer-events: none;
+        animation: shimmer 20s infinite linear;
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: rotate(45deg) translateX(-50%);
+        }
+        100% {
+          transform: rotate(45deg) translateX(50%);
+        }
+      }
+
+      h1 {
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+        margin-bottom: 0.5rem;
+        letter-spacing: 1.5px;
+        position: relative;
+      }
+
+      h2 {
+        font-size: clamp(1.1rem, 3vw, 1.5rem);
+        color: var(--border-color);
+        margin-bottom: 1.25rem;
+        font-weight: 500;
+      }
+
+      p {
+        font-size: clamp(0.875rem, 2vw, 1rem);
+        margin: 0.75rem 0;
+        color: #e0e0e0;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: center;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 0.75rem 1.5rem;
+        border: 2px solid var(--border-color);
+        background: transparent;
+        color: var(--border-color);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(4px);
+      }
+
+      .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, var(--button-hover), transparent);
+        transition: 0.5s;
+      }
+
+      .btn:hover::before {
+        left: 100%;
+      }
+
+      .btn:hover {
+        background: var(--button-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px var(--shadow-color);
+      }
+
+      .btn:active {
+        transform: translateY(0);
+      }
+
+      .projects {
+        width: 100%;
+        max-width: 1200px;
+        padding: 0 1rem;
+        margin-top: var(--section-spacing);
+      }
+
+      .projects h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--border-color);
+        text-align: center;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1.25rem;
+        grid-auto-rows: minmax(120px, auto);
+        padding: 1rem;
+      }
+
+      .project {
+        background: var(--glass-bg);
+        backdrop-filter: blur(8px);
+        padding: 1rem;
+        border-radius: 12px;
+        border: 1.5px solid var(--border-color);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project:hover {
+        box-shadow: 0 0 20px var(--shadow-color);
+        transform: translateY(-5px);
+      }
+
+      .project::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, transparent, rgba(255, 215, 0, 0.05), transparent);
+        pointer-events: none;
+      }
+
+      .project img {
+        width: 100%;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 6px;
+        margin-bottom: 0.75rem;
+      }
+
+      .project p {
+        font-size: 0.85rem;
+        margin: 0;
+        color: var(--border-color);
+        font-weight: 500;
+      }
+
+      .footer {
+        margin-top: auto;
+        padding: 2rem 0 1rem;
+        font-size: 0.875rem;
+        text-align: center;
+        width: 100%;
+        border-top: 1px solid var(--glass-bg);
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1.5rem;
+          border-radius: 12px;
+        }
+
+        .project-grid {
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+          gap: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 1.5rem 0.5rem;
+        }
+
+        .container {
+          padding: 1.25rem;
+        }
+
+        .btn {
+          width: 100%;
+        }
+
+        .project-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Girish Kor</h1>
+      <h2>Full Stack Java Developer</h2>
+      <p>BE in Computer Science Engineering | 2024</p>
+      <p>Skills: HTML, CSS, Java, JavaScript, SQL</p>
+
+      <div class="buttons">
+        <button class="btn" onclick="window.open('./resume.pdf', '_blank')">Resume</button>
+        <button class="btn" onclick="window.open('mailto:girish@example.com')">Contact</button>
+      </div>
+    </div>
+
+    <div class="projects">
+      <h3>Projects</h3>
+      <div class="project-grid">
+        <script>
+          const projects = [
+            { name: 'To-Do List', img: './images/todo-thumbnail.png', link: './toDoList.html' },
+            { name: 'Calculator', img: './images/calc-thumbnail.png', link: './calculator.html' },
+            {
+              name: 'Countdown Timer',
+              img: './images/timer-thumbnail.png',
+              link: './countdownTimer.html',
+            },
+            { name: 'Quiz App', img: './images/quiz-thumbnail.png', link: './quizApp.html' },
+            {
+              name: 'Weather App',
+              img: './images/weather-thumbnail.png',
+              link: './weatherApp.html',
+            },
+            {
+              name: 'Drawing Canvas',
+              img: './images/drawing-thumbnail.png',
+              link: './drawingCanvas.html',
+            },
+            {
+              name: 'Budget Tracker',
+              img: './images/budget-thumbnail.png',
+              link: './budgetTracker.html',
+            },
+            {
+              name: 'Music Player',
+              img: './images/music-thumbnail.png',
+              link: './musicPlayer.html',
+            },
+            {
+              name: 'Portfolio',
+              img: './images/portfolio-thumbnail.png',
+              link: './portfolio.html',
+            },
+            { name: 'Blog Layout', img: './images/blog-thumbnail.png', link: './blogLayout.html' },
+            {
+              name: 'BMI Calculator',
+              img: './images/bmi-thumbnail.png',
+              link: './bmiCalculator.html',
+            },
+            {
+              name: 'Age Calculator',
+              img: './images/age-thumbnail.png',
+              link: './ageCalculator.html',
+            },
+            {
+              name: 'Unit Converter',
+              img: './images/converter-thumbnail.png',
+              link: './unitConverter.html',
+            },
+            {
+              name: 'Memory Card Game',
+              img: './images/memory-thumbnail.png',
+              link: './memoryCardGame.html',
+            },
+            {
+              name: 'Recipe Finder',
+              img: './images/recipe-thumbnail.png',
+              link: './recipeFinder.html',
+            },
+            {
+              name: 'Note-Taking App',
+              img: './images/note-thumbnail.png',
+              link: './noteTakingApp.html',
+            },
+            {
+              name: 'Color Palette Generator',
+              img: './images/palette-thumbnail.png',
+              link: './colorPaletteGenerator.html',
+            },
+            {
+              name: 'Password Generator',
+              img: './images/password-thumbnail.png',
+              link: './passwordGenerator.html',
+            },
+            {
+              name: 'Typing Speed Test',
+              img: './images/typing-thumbnail.png',
+              link: './typingSpeedTest.html',
+            },
+            { name: 'Snake Game', img: './images/snake-thumbnail.png', link: './snakeGame.html' },
+          ];
+
+          function renderProjects() {
+            let projectHTML = '';
+            projects.forEach((project) => {
+              projectHTML += `
+                            <div class="project" onclick="window.open('${project.link}', '_blank')">
+                                <img src="${project.img}" alt="${project.name}">
+                                <p>${project.name}</p>
+                            </div>
+                        `;
+            });
+            document.querySelector('.project-grid').innerHTML = projectHTML;
+          }
+
+          renderProjects();
+        </script>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>© 2025 Girish Kor | Portfolio Website</p>
+    </div>
+  </body>
+</html>
