@@ -29,7 +29,48 @@
       <section class="products-grid" aria-label="Available Projects">
         <script>
           const projects = [
-            // ... (your existing projects array remains the same)
+            {
+              name: "Age Calculator",
+              price: 499,
+              img: "https://raw.githubusercontent.com/girish-kor/web-shop/main/images/age-calculator.png",
+              repo: "https://github.com/girish-kor/web-shop/blob/main/projects/ageCalculator.html",
+              description: "Calculate age based on birthdate with an interactive interface"
+            },
+            {
+              name: "Weather App",
+              price: 799,
+              img: "https://raw.githubusercontent.com/girish-kor/web-shop/main/images/weather-app.png",
+              repo: "https://github.com/girish-kor/web-shop/blob/main/projects/weatherApp.html",
+              description: "Real-time weather updates with location search functionality"
+            },
+            {
+              name: "Todo List",
+              price: 599,
+              img: "https://raw.githubusercontent.com/girish-kor/web-shop/main/images/todo-list.png",
+              repo: "https://github.com/girish-kor/web-shop/blob/main/projects/todoList.html",
+              description: "Task management app with local storage and priority sorting"
+            },
+            {
+              name: "Calculator",
+              price: 399,
+              img: "https://raw.githubusercontent.com/girish-kor/web-shop/main/images/calculator.png",
+              repo: "https://github.com/girish-kor/web-shop/blob/main/projects/calculator.html",
+              description: "Fully functional calculator with history tracking"
+            },
+            {
+              name: "Quiz App",
+              price: 699,
+              img: "https://raw.githubusercontent.com/girish-kor/web-shop/main/images/quiz-app.jpg",
+              repo: "https://github.com/girish-kor/web-shop/blob/main/projects/quizApp.html", 
+              description: "Interactive quiz application with score tracking"
+            },
+            {
+              name: "Image Gallery",
+              price: 649,
+              img: "https://raw.githubusercontent.com/girish-kor/web-shop/main/images/image-gallery.jpg",
+              repo: "https://github.com/girish-kor/web-shop/blob/main/projects/imageGallery.html",
+              description: "Responsive image gallery with lightbox feature"
+            }
           ];
 
           function renderProducts() {
@@ -49,6 +90,7 @@
                   </div>
                   <div class="card-content">
                     <h2 class="product-title">${product.name}</h2>
+                    <p class="product-description">${product.description}</p>
                     <p class="product-price">₹${product.price}</p>
                     <div class="card-actions">
                       <button 
