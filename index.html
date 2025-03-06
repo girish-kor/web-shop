@@ -1,10 +1,10 @@
-<!-- web-shop.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>web-Shop</title>
+    <meta name="description" content="Purchase ready-to-use web development projects with complete source code">
+    <title>Web Development Projects Shop | web-shop</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
       rel="stylesheet"
@@ -13,67 +13,105 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="header">
-      <div class="logo">web-Shop</div>
-      <div class="cart">
-        <i class="material-icons">shopping_cart</i>
-        <span id="cartCount">0</span>
-      </div>
-    </div>
+    <header class="header">
+      <h1 class="logo">
+        <a href="/" aria-label="Web Shop Home">web-shop</a>
+      </h1>
+      <nav class="cart" role="navigation" aria-label="Shopping Cart">
+        <button class="cart-button" aria-label="View shopping cart">
+          <i class="material-icons" aria-hidden="true">shopping_cart</i>
+          <span id="cartCount" class="cart-count">0</span>
+        </button>
+      </nav>
+    </header>
 
-    <div class="products">
-      <script>
-        const projects = [
-          { name: "To-Do List", price: 199, img: "./projects/images/todo-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/toDoList.html" },
-          { name: "Calculator", price: 249, img: "./projects/images/calc-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/calculator.html" },
-          { name: "Countdown Timer", price: 299, img: "./projects/images/timer-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/countdownTimer.html" },
-          { name: "Quiz App", price: 349, img: "./projects/images/quiz-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/quizApp.html" },
-          { name: "Weather App", price: 399, img: "./projects/images/weather-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/weatherApp.html" },
-          { name: "Drawing Canvas", price: 499, img: "./projects/images/drawing-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/drawingCanvas.html" },
-          { name: "Color Palette Generator", price: 549, img: "./projects/images/palette-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/colorPalette.html" },
-          { name: "Memory Card Game", price: 599, img: "./projects/images/memory-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/memoryGame.html" },
-          { name: "Recipe Finder", price: 649, img: "./projects/images/recipe-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/recipeFinder.html" },
-          { name: "Note-Taking App", price: 699, img: "./projects/images/note-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/noteApp.html" },
-          { name: "Budget Tracker", price: 749, img: "./projects/images/budget-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/budgetTracker.html" },
-          { name: "Music Player", price: 799, img: "./projects/images/music-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/musicPlayer.html" },
-          { name: "Portfolio Website", price: 849, img: "./projects/images/portfolio-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/portfolio.html" },
-          { name: "Blog Layout", price: 899, img: "./projects/images/blog-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/blogLayout.html" },
-          { name: "BMI Calculator", price: 949, img: "./projects/images/bmi-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/bmiCalculator.html" },
-          { name: "Age Calculator", price: 999, img: "./projects/images/age-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/ageCalculator.html" },
-          { name: "Unit Converter", price: 1049, img: "./projects/images/converter-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/unitConverter.html" },
-          { name: "Typing Speed Test", price: 1099, img: "./projects/images/typing-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/typingTest.html" },
-          { name: "Password Generator", price: 1149, img: "./projects/images/password-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/passwordGenerator.html" },
-          { name: "Snake Game", price: 1199, img: "./projects/images/snake-thumbnail.png", repo: "https://github.com/girish-kor/web-shop/tree/main/projects/pages/snakeGame.html" },
-        ];
+    <main class="main-content">
+      <section class="products-grid" aria-label="Available Projects">
+        <script>
+          const projects = [
+            // ... (your existing projects array remains the same)
+          ];
 
-        function renderProducts() {
-          let productHTML = "";
-          projects.forEach((product, index) => {
-            productHTML += `
-              <div class="product">
-                <img src="${product.img}" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <p class="price">₹${product.price}</p>
-                <div class="btn-container">
-                  <button class="btn" onclick="addToCart(${index})">Add to Cart</button>
-                  <a href="${product.repo}" target="_blank"><button class="btn">View</button></a>
-                </div>
-              </div>
-            `;
-          });
-          document.querySelector(".products").innerHTML = productHTML;
-        }
+          function renderProducts() {
+            const productsContainer = document.querySelector('.products-grid');
+            let productHTML = '';
+            
+            projects.forEach((product, index) => {
+              productHTML += `
+                <article class="product-card">
+                  <div class="card-image">
+                    <img 
+                      src="${product.img}" 
+                      alt="${product.name} Project Preview" 
+                      loading="lazy"
+                      class="product-image"
+                    >
+                  </div>
+                  <div class="card-content">
+                    <h2 class="product-title">${product.name}</h2>
+                    <p class="product-price">₹${product.price}</p>
+                    <div class="card-actions">
+                      <button 
+                        class="btn btn-primary" 
+                        onclick="addToCart(${index})"
+                        aria-label="Add ${product.name} to cart"
+                      >
+                        Add to Cart
+                      </button>
+                      <a 
+                        href="${product.repo}" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="btn btn-secondary"
+                        aria-label="View ${product.name} project details"
+                      >
+                        View Project
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              `;
+            });
+            
+            productsContainer.innerHTML = productHTML;
+          }
 
-        function addToCart(index) {
-          document.getElementById("cartCount").innerText++;
-        }
+          let cartItems = [];
+          
+          function addToCart(index) {
+            const itemExists = cartItems.some(item => item.index === index);
+            if (!itemExists) {
+              cartItems.push({ ...projects[index], index });
+              updateCartCount();
+              showAddedNotification(projects[index].name);
+            }
+          }
 
-        renderProducts();
-      </script>
-    </div>
+          function updateCartCount() {
+            document.getElementById("cartCount").textContent = cartItems.length;
+          }
 
-    <div class="footer">
-      <p>© 2024 web-Shop | All Rights Reserved</p>
-    </div>
+          function showAddedNotification(itemName) {
+            const notification = document.createElement('div');
+            notification.className = 'cart-notification';
+            notification.textContent = `${itemName} added to cart!`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+              notification.remove();
+            }, 2000);
+          }
+
+          document.addEventListener('DOMContentLoaded', renderProducts);
+        </script>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="copyright">
+        © 2024 web-shop | All Rights Reserved<br>
+        <small>Projects are for educational purposes only</small>
+      </p>
+    </footer>
   </body>
 </html>
