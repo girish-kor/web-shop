@@ -1,0 +1,178 @@
+<!-- musicPlayer.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+      :root {
+        --primary-bg: #000000;
+        --border-color: #ffd700;
+        --text-color: #ffffff;
+        --shadow-color: rgba(255, 215, 0, 0.6);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+        user-select: none;
+      }
+
+      body {
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        margin-bottom: 15px;
+      }
+
+      .player-container {
+        width: 100%;
+        max-width: 400px;
+        background: #222;
+        border: 2px solid var(--border-color);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .cover {
+        width: 100%;
+        height: 200px;
+        background: var(--border-color);
+        border-radius: 10px;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #000;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .controls {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 10px;
+      }
+
+      .controls .material-icons {
+        font-size: 30px;
+        cursor: pointer;
+        color: var(--border-color);
+      }
+
+      .controls .material-icons:hover {
+        color: #fff;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 5px;
+        background: #444;
+        margin-top: 10px;
+        position: relative;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      .progress {
+        width: 0%;
+        height: 100%;
+        background: var(--border-color);
+        transition: width 0.3s;
+      }
+
+      .song-info {
+        margin-top: 10px;
+        font-size: 16px;
+        color: var(--border-color);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Music Player</h1>
+
+    <div class="player-container">
+      <div class="cover">Album Art</div>
+      <div class="song-info" id="songTitle">No song playing</div>
+      <audio id="audio"></audio>
+
+      <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+      </div>
+
+      <div class="controls">
+        <span class="material-icons" onclick="prevSong()">skip_previous</span>
+        <span class="material-icons" id="playPause" onclick="togglePlay()">play_arrow</span>
+        <span class="material-icons" onclick="nextSong()">skip_next</span>
+      </div>
+    </div>
+
+    <script>
+      const songs = [
+        { title: 'Song 1', src: 'song1.mp3' },
+        { title: 'Song 2', src: 'song2.mp3' },
+        { title: 'Song 3', src: 'song3.mp3' },
+      ];
+
+      let currentSongIndex = 0;
+      const audio = document.getElementById('audio');
+      const playPauseBtn = document.getElementById('playPause');
+      const songTitle = document.getElementById('songTitle');
+      const progressBar = document.getElementById('progress');
+
+      function loadSong(index) {
+        audio.src = songs[index].src;
+        songTitle.textContent = songs[index].title;
+        audio.load();
+        togglePlay(true);
+      }
+
+      function togglePlay(forcePlay = false) {
+        if (audio.paused || forcePlay) {
+          audio.play();
+          playPauseBtn.textContent = 'pause';
+        } else {
+          audio.pause();
+          playPauseBtn.textContent = 'play_arrow';
+        }
+      }
+
+      function prevSong() {
+        currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+        loadSong(currentSongIndex);
+      }
+
+      function nextSong() {
+        currentSongIndex = (currentSongIndex + 1) % songs.length;
+        loadSong(currentSongIndex);
+      }
+
+      audio.addEventListener('timeupdate', () => {
+        const progress = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.width = progress + '%';
+      });
+
+      audio.addEventListener('ended', nextSong);
+
+      loadSong(currentSongIndex);
+    </script>
+  </body>
+</html>

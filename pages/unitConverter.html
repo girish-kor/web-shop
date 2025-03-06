@@ -1,0 +1,170 @@
+<!-- unitConverter.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit Converter</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+      :root {
+        --primary-bg: #000000;
+        --border-color: #ffd700;
+        --text-color: #ffffff;
+        --shadow-color: rgba(255, 215, 0, 0.6);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+        user-select: none;
+      }
+
+      body {
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+      }
+
+      h1 {
+        text-shadow: 0 0 5px var(--shadow-color);
+        margin-bottom: 20px;
+      }
+
+      .container {
+        background: #222;
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px solid var(--border-color);
+        width: 300px;
+        text-align: center;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin: 10px 0;
+        border: 2px solid var(--border-color);
+        background: #333;
+        color: var(--text-color);
+        border-radius: 5px;
+        outline: none;
+      }
+
+      .btn {
+        padding: 8px 15px;
+        border: 1px solid var(--border-color);
+        background: transparent;
+        color: var(--border-color);
+        cursor: pointer;
+        transition: 0.3s;
+        border-radius: 5px;
+      }
+
+      .btn:hover {
+        background: var(--border-color);
+        color: var(--primary-bg);
+      }
+
+      .result {
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Unit Converter</h1>
+
+    <div class="container">
+      <label for="unitType">Select Unit Type:</label>
+      <select id="unitType" onchange="updateUnits()">
+        <option value="length">Length</option>
+        <option value="weight">Weight</option>
+        <option value="temperature">Temperature</option>
+      </select>
+
+      <label for="fromUnit">From:</label>
+      <select id="fromUnit"></select>
+
+      <label for="toUnit">To:</label>
+      <select id="toUnit"></select>
+
+      <label for="inputValue">Value:</label>
+      <input type="number" id="inputValue" placeholder="Enter value" />
+
+      <button class="btn" onclick="convertUnit()">Convert</button>
+
+      <div class="result" id="conversionResult"></div>
+    </div>
+
+    <script>
+      const units = {
+        length: { Meters: 1, Kilometers: 0.001, Centimeters: 100, Inches: 39.3701, Feet: 3.28084 },
+        weight: { Kilograms: 1, Grams: 1000, Pounds: 2.20462, Ounces: 35.274 },
+        temperature: { Celsius: 'C', Fahrenheit: 'F', Kelvin: 'K' },
+      };
+
+      function updateUnits() {
+        const unitType = document.getElementById('unitType').value;
+        const fromUnit = document.getElementById('fromUnit');
+        const toUnit = document.getElementById('toUnit');
+
+        fromUnit.innerHTML = '';
+        toUnit.innerHTML = '';
+
+        for (let unit in units[unitType]) {
+          fromUnit.innerHTML += `<option value="${unit}">${unit}</option>`;
+          toUnit.innerHTML += `<option value="${unit}">${unit}</option>`;
+        }
+      }
+
+      function convertUnit() {
+        const unitType = document.getElementById('unitType').value;
+        const fromUnit = document.getElementById('fromUnit').value;
+        const toUnit = document.getElementById('toUnit').value;
+        const inputValue = parseFloat(document.getElementById('inputValue').value);
+
+        if (isNaN(inputValue)) {
+          document.getElementById('conversionResult').innerText = 'Enter a valid number!';
+          return;
+        }
+
+        let result;
+        if (unitType === 'temperature') {
+          if (fromUnit === toUnit) result = inputValue;
+          else if (fromUnit === 'Celsius' && toUnit === 'Fahrenheit')
+            result = (inputValue * 9) / 5 + 32;
+          else if (fromUnit === 'Celsius' && toUnit === 'Kelvin') result = inputValue + 273.15;
+          else if (fromUnit === 'Fahrenheit' && toUnit === 'Celsius')
+            result = ((inputValue - 32) * 5) / 9;
+          else if (fromUnit === 'Fahrenheit' && toUnit === 'Kelvin')
+            result = ((inputValue - 32) * 5) / 9 + 273.15;
+          else if (fromUnit === 'Kelvin' && toUnit === 'Celsius') result = inputValue - 273.15;
+          else if (fromUnit === 'Kelvin' && toUnit === 'Fahrenheit')
+            result = ((inputValue - 273.15) * 9) / 5 + 32;
+        } else {
+          result = inputValue * (units[unitType][toUnit] / units[unitType][fromUnit]);
+        }
+
+        document.getElementById('conversionResult').innerText = `Converted Value: ${result.toFixed(
+          2
+        )} ${toUnit}`;
+      }
+
+      updateUnits();
+    </script>
+  </body>
+</html>
