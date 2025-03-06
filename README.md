@@ -239,10 +239,8 @@ xdg-open index.html
 web-shop/
 ├── index.html              # Main landing page
 ├── projects/
-│   ├── pages/              # Individual project HTML files
-│   ├── css/                # Stylesheet files
-│   ├── js/                 # JavaScript files
-│   └── images/             # Project thumbnails and assets
+│   ├── images/             # Project thumbnails and assets
+│   └── ageCalculator.html  ... and more projects
 └── README.md               # This file
 ```
 
