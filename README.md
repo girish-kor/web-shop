@@ -1,92 +1,127 @@
-# **🌐 Web-Shop Projects**
+# **Web-Shop** 🛒
 
 ## _Showcasing My Web Development Projects_
 
-![Portfolio Banner](./projects/images/banner.png)
+[![Portfolio Banner](https://link-to-banner-image.com)](https://github.com/girish-kor)
 
-This repository contains a collection of projects built using **HTML5**, **CSS3**, and **JavaScript**.  
-Each project showcases different web development concepts with a **modern, responsive, and user-friendly UI**.
+This repository contains a collection of **20 fully functional web-based projects** built using **HTML5**, **CSS3**, and **JavaScript**. These projects showcase modern UI/UX designs, interactive features, and fully responsive layouts.
 
-- **🚀 Explore Projects** – Each project is self-contained and runs independently.  
-- **📱 Responsive Design** – Optimized for mobile, tablet, and desktop devices.  
-- **🎨 Sleek UI** – Dark mode aesthetic with smooth animations and intuitive interactions.  
+## **🌟 Key Features**
+- **Modern Aesthetic** – Sleek, dark-mode UI with smooth animations.
+- **Fully Responsive** – Optimized for mobile, tablet, and desktop devices.
+- **Interactive UI** – Hover effects, transitions, and animations.
+- **API Integration** – Real-time data fetching for enhanced functionality.
+- **LocalStorage Support** – Persistent data for user interactions.
+- **Glassmorphism & Neumorphism** – Stylish UI elements for a premium feel.
 
 ---
 
-## **🔗 Projects List**
+## **📌 Projects List**
+### **🚀 Core Web Applications**
+1. **[To-Do List](./projects/pages/toDoList.html)**
+   Task manager with drag & drop, prioritization, and reminders.  
+   ![To-Do List](./projects/images/todo-thumbnail.png)  
+   [Live Preview](https://github.com/girish-kor/toDoList)
 
-### **🛠️ Core Projects**
-#### **To-Do List**
-[![To-Do List](./projects/images/todo-thumbnail.png)](https://girish-kor.github.io/web-shop/pages/toDoList.html)  
-🔗 **[Live Demo](https://girish-kor.github.io/web-shop/pages/toDoList.html)** | 📂 **[Repo](https://github.com/girish-kor/web-shop/blob/main/pages/toDoList.html)**  
+2. **[Calculator](./projects/pages/calculator.html)**
+   Scientific calculator with history log and clipboard copy.  
+   ![Calculator](./projects/images/calc-thumbnail.png)  
+   [Live Preview](https://github.com/girish-kor/calculator)
 
-#### **Calculator**
-[![Calculator](./projects/images/calc-thumbnail.png)](https://girish-kor.github.io/web-shop/pages/calculator.html)  
-🔗 **[Live Demo](https://girish-kor.github.io/web-shop/pages/calculator.html)** | 📂 **[Repo](https://github.com/girish-kor/web-shop/blob/main/pages/calculator.html)**  
+3. **[Countdown Timer](./projects/pages/countdownTimer.html)**
+   Multi-timer with Pomodoro mode and custom alarms.  
+   ![Countdown Timer](./projects/images/timer-thumbnail.png)  
+   [Live Preview](https://github.com/girish-kor/countdownTimer)
 
-#### **Countdown Timer**
-[![Countdown Timer](./projects/images/timer-thumbnail.png)](https://girish-kor.github.io/web-shop/pages/countdownTimer.html)  
-🔗 **[Live Demo](https://girish-kor.github.io/web-shop/pages/countdownTimer.html)** | 📂 **[Repo](https://github.com/girish-kor/web-shop/blob/main/pages/countdownTimer.html)**  
+4. **[Quiz App](./projects/pages/quizApp.html)**
+   Timed quiz with randomized questions and leaderboard.  
+   ![Quiz App](./projects/images/quiz-thumbnail.png)  
+   [Live Preview](https://github.com/girish-kor/quizApp)
 
 ---
 
 ### **🎨 UI/UX Focused Projects**
-#### **Weather App**
-[![Weather App](./projects/images/weather-thumbnail.png)](https://girish-kor.github.io/web-shop/pages/weatherApp.html)  
-🔗 **[Live Demo](https://girish-kor.github.io/web-shop/pages/weatherApp.html)** | 📂 **[Repo](https://github.com/girish-kor/web-shop/blob/main/pages/weatherApp.html)**  
+5. **[Weather App](./projects/pages/weatherApp.html)**
+   Real-time weather updates with smooth UI.  
+   ![Weather App](./projects/images/weather-thumbnail.png)  
+   [Live Preview](https://github.com/girish-kor/weatherApp)
 
-#### **Drawing Canvas**
-[![Drawing Canvas](./projects/images/drawing-thumbnail.png)](https://girish-kor.github.io/web-shop/pages/drawingCanvas.html)  
-🔗 **[Live Demo](https://girish-kor.github.io/web-shop/pages/drawingCanvas.html)** | 📂 **[Repo](https://github.com/girish-kor/web-shop/blob/main/pages/drawingCanvas.html)**  
+6. **[Drawing Canvas](./projects/pages/drawingCanvas.html)**
+   Brush tools, layers, and export functionality.  
+   ![Drawing Canvas](./projects/images/drawing-thumbnail.png)  
+   [Live Preview](https://github.com/girish-kor/drawingCanvas)
 
-#### **Color Palette Generator**
-[![Color Palette](./projects/images/palette-thumbnail.png)](https://girish-kor.github.io/web-shop/pages/colorPalette.html)  
-🔗 **[Live Demo](https://girish-kor.github.io/web-shop/pages/colorPalette.html)** | 📂 **[Repo](https://github.com/girish-kor/web-shop/blob/main/pages/colorPalette.html)**  
+7. **[Color Palette Generator](./projects/pages/colorPalette.html)**
+   Generate complementary color palettes from images.  
+   ![Color Palette Generator](./projects/images/palette-thumbnail.png)  
+   [Live Preview](https://github.com/girish-kor/colorPalette)
 
----
-
-### **📌 Utility & Productivity Apps**
-#### **Recipe Finder**
-[![Recipe Finder](./projects/images/recipe-thumbnail.png)](https://girish-kor.github.io/web-shop/pages/recipeFinder.html)  
-🔗 **[Live Demo](https://girish-kor.github.io/web-shop/pages/recipeFinder.html)** | 📂 **[Repo](https://github.com/girish-kor/web-shop/blob/main/pages/recipeFinder.html)**  
-
-#### **Note-Taking App**
-[![Note-Taking](./projects/images/note-thumbnail.png)](https://girish-kor.github.io/web-shop/pages/noteTaking.html)  
-🔗 **[Live Demo](https://girish-kor.github.io/web-shop/pages/noteTaking.html)** | 📂 **[Repo](https://github.com/girish-kor/web-shop/blob/main/pages/noteTaking.html)**  
-
-#### **Budget Tracker**
-[![Budget Tracker](./projects/images/budget-thumbnail.png)](https://girish-kor.github.io/web-shop/pages/budgetTracker.html)  
-🔗 **[Live Demo](https://girish-kor.github.io/web-shop/pages/budgetTracker.html)** | 📂 **[Repo](https://github.com/girish-kor/web-shop/blob/main/pages/budgetTracker.html)**  
+8. **[Memory Card Game](./projects/pages/memoryGame.html)**
+   Fun memory matching game with score tracking.  
+   ![Memory Card Game](./projects/images/memory-thumbnail.png)  
+   [Live Preview](https://github.com/girish-kor/memoryGame)
 
 ---
 
-### **🕹️ Additional Projects**
-#### **Blog Layout**
-[![Blog Layout](./projects/images/blog-thumbnail.png)](https://girish-kor.github.io/web-shop/pages/blogLayout.html)  
-🔗 **[Live Demo](https://girish-kor.github.io/web-shop/pages/blogLayout.html)** | 📂 **[Repo](https://github.com/girish-kor/web-shop/blob/main/pages/blogLayout.html)**  
+### **📋 Productivity & Utility Apps**
+9. **[Recipe Finder](./projects/pages/recipeFinder.html)**
+   Search and save recipes based on ingredients.  
+   ![Recipe Finder](./projects/images/recipe-thumbnail.png)  
+   [Live Preview](https://github.com/girish-kor/recipeFinder)
 
-#### **BMI Calculator**
-[![BMI Calculator](./projects/images/bmi-thumbnail.png)](https://girish-kor.github.io/web-shop/pages/bmiCalculator.html)  
-🔗 **[Live Demo](https://girish-kor.github.io/web-shop/pages/bmiCalculator.html)** | 📂 **[Repo](https://github.com/girish-kor/web-shop/blob/main/pages/bmiCalculator.html)**  
+10. **[Note-Taking App](./projects/pages/noteTaking.html)**
+    Markdown-based note manager with folders.  
+    ![Note-Taking App](./projects/images/note-thumbnail.png)  
+    [Live Preview](https://github.com/girish-kor/noteTaking)
 
-#### **Age Calculator**
-[![Age Calculator](./projects/images/age-thumbnail.png)](https://girish-kor.github.io/web-shop/pages/ageCalculator.html)  
-🔗 **[Live Demo](https://girish-kor.github.io/web-shop/pages/ageCalculator.html)** | 📂 **[Repo](https://github.com/girish-kor/web-shop/blob/main/pages/ageCalculator.html)**  
+11. **[Budget Tracker](./projects/pages/budgetTracker.html)**
+    Manage expenses with graphs and currency conversion.  
+    ![Budget Tracker](./projects/images/budget-thumbnail.png)  
+    [Live Preview](https://github.com/girish-kor/budgetTracker)
+
+12. **[Music Player](./projects/pages/musicPlayer.html)**
+    Playlists, equalizer, and lyrics display.  
+    ![Music Player](./projects/images/music-thumbnail.png)  
+    [Live Preview](https://github.com/girish-kor/musicPlayer)
 
 ---
 
-## **📌 Key Features**
-✔ **Modern Dark Mode UI**  
-✔ **Fully Responsive Design**  
-✔ **Smooth Animations & Transitions**  
-✔ **Real-Time API Integration**  
-✔ **LocalStorage for Data Persistence**  
+### **📚 Additional Projects**
+13. **[Blog Layout](./projects/pages/blogLayout.html)**
+    Blog with commenting, search, and filtering.  
+    ![Blog Layout](./projects/images/blog-thumbnail.png)  
+    [Live Preview](https://github.com/girish-kor/blogLayout)
+
+14. **[BMI Calculator](./projects/pages/bmiCalculator.html)**
+    Calculate BMI with graphical health analysis.  
+    ![BMI Calculator](./projects/images/bmi-thumbnail.png)  
+    [Live Preview](https://github.com/girish-kor/bmiCalculator)
+
+15. **[Age Calculator](./projects/pages/ageCalculator.html)**
+    Calculate age with zodiac signs and birthday countdown.  
+    ![Age Calculator](./projects/images/age-thumbnail.png)  
+    [Live Preview](https://github.com/girish-kor/ageCalculator)
+
+16. **[Unit Converter](./projects/pages/unitConverter.html)**
+    Convert measurements and currency in real-time.  
+    ![Unit Converter](./projects/images/converter-thumbnail.png)  
+    [Live Preview](https://github.com/girish-kor/unitConverter)
+
+17. **[Typing Speed Test](./projects/pages/typingSpeedTest.html)**
+    Measure typing speed with error tracking.  
+    ![Typing Speed Test](./projects/images/typing-thumbnail.png)  
+    [Live Preview](https://github.com/girish-kor/typingSpeedTest)
+
+18. **[Password Generator](./projects/pages/passwordGenerator.html)**
+    Generate secure passwords with complexity settings.  
+    ![Password Generator](./projects/images/password-thumbnail.png)  
+    [Live Preview](https://github.com/girish-kor/passwordGenerator)
+
+19. **[Snake Game](./projects/pages/snakeGame.html)**
+    Classic Snake game with multiple difficulty levels.  
+    ![Snake Game](./projects/images/snake-thumbnail.png)  
+    [Live Preview](https://github.com/girish-kor/snakeGame)
 
 ---
 
-## **📂 Getting Started**
-Clone the repository and run locally:
-
-```bash
-git clone https://github.com/girish-kor/web-shop.git
-cd web-shop
+## **📂 Project Structure**
