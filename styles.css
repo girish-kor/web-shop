@@ -12,7 +12,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   user-select: none;
 }
 
@@ -46,18 +46,6 @@ body {
   box-shadow: 0 4px 20px var(--shadow-color);
   position: relative;
   overflow: hidden;
-}
-
-.header::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.05), transparent);
-  transform: rotate(45deg);
-  animation: shimmer 20s infinite linear;
 }
 
 .logo {
@@ -129,21 +117,6 @@ body {
   transform: translateY(-5px);
 }
 
-.product::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: 0.5s;
-}
-
-.product:hover::after {
-  left: 100%;
-}
-
 .product img {
   width: 100%;
   height: 200px;
@@ -191,21 +164,6 @@ body {
   overflow: hidden;
 }
 
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, var(--button-hover), transparent);
-  transition: 0.5s;
-}
-
-.btn:hover::before {
-  left: 100%;
-}
-
 .btn:hover {
   background: rgba(255, 215, 0, 0.1);
   box-shadow: 0 4px 15px var(--shadow-color);
@@ -224,15 +182,6 @@ body {
   font-size: 0.9rem;
   color: var(--text-color);
   opacity: 0.8;
-}
-
-@keyframes shimmer {
-  0% {
-    transform: rotate(45deg) translateX(-50%);
-  }
-  100% {
-    transform: rotate(45deg) translateX(50%);
-  }
 }
 
 @media (max-width: 768px) {
