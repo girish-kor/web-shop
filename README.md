@@ -1,4 +1,4 @@
-# 🚀 **WEB-SHOP** 🚀
+# 🚀 **WEB-SHOP**
 
 <div align="center">
   
@@ -189,13 +189,13 @@
 
 | 🔥 **Feature** | 📝 **Description** |
 |:--:|:--|
-| **🎨 Modern Design** | Dark mode aesthetics with premium, professional UI |
-| **📱 Responsive** | Perfect experience across all devices (mobile, tablet, desktop) |
-| **✨ Animations** | Smooth transitions and micro-interactions enhance usability |
-| **⚡ Performance** | Optimized load times and runtime performance |
-| **🔄 Real-Time Data** | Dynamic content via API integrations |
-| **💾 Local Storage** | Data persistence for seamless user experience |
-| **🧩 Modular Code** | Clean, maintainable architecture |
+| **Modern Design** | Dark mode aesthetics with premium, professional UI |
+| **Responsive** | Perfect experience across all devices (mobile, tablet, desktop) |
+| **Animations** | Smooth transitions and micro-interactions enhance usability |
+| **Performance** | Optimized load times and runtime performance |
+| **Real-Time Data** | Dynamic content via API integrations |
+| **Local Storage** | Data persistence for seamless user experience |
+| **Modular Code** | Clean, maintainable architecture |
 
 </div>
 
@@ -238,6 +238,7 @@ xdg-open index.html
 ```
 web-shop/
 ├── index.html              # Main landing page
+├── styles.css              # Golden theme
 ├── projects/
 │   ├── images/             # Project thumbnails and assets
 │   └── ageCalculator.html  ... and more projects
@@ -273,7 +274,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check [iss
 
 - **GitHub**: [github.com/girish-kor](https://github.com/girish-kor)
 - **LinkedIn**: [Add your LinkedIn URL here]
-- **Email**: [Add your email here]
+- **Email**: [girishkor05@gmail.com](girishkor05@gmail.com)
 
 ---
 
